@@ -26,9 +26,10 @@ const server = net.createServer(function(socket) {
             console.log("Unknown connected!")
         }
 
+        socket.write("\n hello")
+        socket.write("true;helloWorld;corex.technology;12345")
 
-
-
+        socket.pipe(socket)
     })
 
 });
@@ -37,8 +38,6 @@ server.on("connection", function () {
     console.log("Client connected!")
 })
 
-server.on("error", function (data) {
 
-})
 
 server.listen(2005);
